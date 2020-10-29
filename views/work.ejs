@@ -1,0 +1,27 @@
+<%- include("header.ejs") -%>
+
+    <div class="box" id="heading">
+        <h1><%= date %></h1><!--peredali datu sjuda   -->
+    </div>
+
+    <div class="box">
+        <% for(var i=0; i<toDoWorkItems.length; i++) { %>
+        <form action="/deletework" method="POST">
+            <div class="item">
+                <input name="checkboxwork" value="<%= toDoWorkItems[i].description %>" type="checkbox" onchange="this.form.submit()">
+                <p><%= toDoWorkItems[i].description %></p>
+            </div>
+        </form>
+        <% } %>
+        <form action="/work" class="class" method="POST">
+            <input type="text" name="newTaskwork" placeholder="New Task" autocomplete="off">
+            <button type="submit">+</button>
+        </form>
+    </div>
+
+
+<%- include("footer.ejs") -%>
+
+</body>
+
+</html>
